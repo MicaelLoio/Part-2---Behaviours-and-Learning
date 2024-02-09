@@ -21,7 +21,8 @@ public class SubGoal
     }
 }
 
-public class GAgent : MonoBehaviour { 
+public class GAgent : MonoBehaviour 
+{ 
 
 
     public List<GAction> actions = new List<GAction>();
@@ -44,26 +45,27 @@ public class GAgent : MonoBehaviour {
             actions.Add(a);
        
         }
-	}
 
-	bool invoked = false;
-    public void CompleteAction()
-    {
-        currentAction.running = false;
-        currentAction.PostPerform();
-        invoked = false;
-    }
+	}
+	    bool invoked = false;
+        public void CompleteAction()
+        {
+             currentAction.running = false;
+             currentAction.PostPerform();
+             invoked = false;
+         }
 
     void LateUpdate() 
     {
         if(currentAction != null && currentAction.running )
         {
                 float distanceToTarget = Vector3.Distance(currentAction.target.transform.position, this.transform.position);
-                if(currentAction.agent.hasPath && distanceToTarget < 2f) //currentAction.agent.remainingDistance < 0.5f)
+                if(currentAction.agent.hasPath && distanceToTarget < 1.0f) //currentAction.agent.remainingDistance < 0.5f)
 				{
                     Debug.Log("Distance to Goal: " + currentAction.agent.remainingDistance);
                 if (!invoked)
                 {
+                    //Debug.Log("Complete Invoke in: " + currentAction.duration);
                     Invoke("CompleteAction", currentAction.duration);
                     invoked = true;
                 }
@@ -102,8 +104,8 @@ public class GAgent : MonoBehaviour {
         }
 
 
-        if (actionQueue !=null && actionQueue.Count > 0)
-                {
+            if (actionQueue !=null && actionQueue.Count > 0)
+            {
                      currentAction = actionQueue.Dequeue();
                         if(currentAction.PrePerform())
                          {
@@ -125,9 +127,9 @@ public class GAgent : MonoBehaviour {
                     actionQueue = null;
                           }
 
-                }
-		}
+            }
+		
 	}
-
+}
 
 
