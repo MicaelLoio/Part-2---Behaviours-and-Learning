@@ -34,18 +34,20 @@ public class GAgent : MonoBehaviour {
     SubGoal currentGoal;
 
     // Start is called before the first frame update
-    public void Start() 
+    protected virtual void Start() 
     {
 
         GAction[] acts = this.GetComponents<GAction>();
-        foreach (GAction a in acts) {
+        foreach (GAction a in acts) 
+        {
 
             actions.Add(a);
        
-    }
+        }
+	}
 
-        bool invoked = false;
-    void CompleteAction()
+	bool invoked = false;
+    public void CompleteAction()
     {
         currentAction.running = false;
         currentAction.PostPerform();
@@ -126,6 +128,6 @@ public class GAgent : MonoBehaviour {
                 }
 		}
 	}
-}
+
 
 
