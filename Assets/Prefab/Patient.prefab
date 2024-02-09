@@ -2732,7 +2732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7880970886039044016
 Transform:
   m_ObjectHideFlags: 0
@@ -2792,7 +2792,7 @@ MonoBehaviour:
   afterEffects:
   - key: hasArrived
     value: 0
-  agent: {fileID: 0}
+  agent: {fileID: 196033793}
   running: 0
 --- !u!114 &196033795
 MonoBehaviour:
@@ -2831,7 +2831,7 @@ MonoBehaviour:
   afterEffects:
   - key: isWaiting
     value: 0
-  agent: {fileID: 0}
+  agent: {fileID: 196033793}
   running: 0
 --- !u!114 &196033798
 MonoBehaviour:
